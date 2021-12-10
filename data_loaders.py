@@ -31,7 +31,10 @@ class Plain_Dataset(Dataset):
     def __getitem__(self,idx):
         if torch.is_tensor(idx):
             idx = idx.tolist()
+        # sort_img = sorted(os.listdir(self.img_dir))
+        # print(sort_img[0])    
         img = Image.open(self.img_dir+self.datatype+str(idx)+'.jpg')
+        # img = Image.open(self.img_dir+sort_img[idx])
         lables = np.array(self.lables[idx])
         lables = torch.from_numpy(lables).long()
 

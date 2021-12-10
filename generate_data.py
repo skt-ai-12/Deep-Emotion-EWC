@@ -41,7 +41,7 @@ class Generate_data():
         imgarray = np.asarray(imgarray_str,dtype=np.uint8).reshape(48,48)
         return Image.fromarray(imgarray)
 
-    def save_images(self, datatype='train'):
+    def save_images(self, datatype='train_total'):
         '''
         save_images is a function responsible for saving images from data files e.g(train, test) in a desired folder
             params:-
@@ -49,6 +49,7 @@ class Generate_data():
         '''
         foldername= self.data_path+"/"+datatype
         csvfile_path= self.data_path+"/"+datatype+'.csv'
+
         if not os.path.exists(foldername):
             os.mkdir(foldername)
 
